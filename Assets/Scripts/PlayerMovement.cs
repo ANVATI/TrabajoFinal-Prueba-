@@ -10,16 +10,18 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     private Rigidbody rb;
     private Animator playerAnimation;
+    public float rollForce = 10f;
+    private CapsuleCollider capsuleCollider;
+    private Vector3 standingColliderCenter;
+    private float standingColliderHeight;
+
+    //La pandemia de booleanos
     private bool isRunning = false;
     private bool runButtonPressed = false;
     private bool IsNormalAttacking = false;
     private bool IsCrouched = false;
-    private CapsuleCollider capsuleCollider;
-    private Vector3 standingColliderCenter;
-    private float standingColliderHeight;
     private bool canRolling = false;
     private bool IsRolling = false;
-    public float rollForce = 10f;
     private bool attackStandButtonEnabled = true;
     private bool rollButtonEnabled = true;
     private bool rageModeButton = true;
@@ -157,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
         attackStandButtonEnabled = false;
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.68f);
 
         IsNormalAttacking = false;
         playerAnimation.SetBool("IsAttacking", false);
